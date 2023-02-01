@@ -53,6 +53,16 @@ export default function Sidebar() {
 }
 
 const SidebarContainer = styled.div`
+    color: black;
+    background-color: white;
+    padding: 0 13px;
+    border-right: 1px solid lightgray;
+    display: none;
+
+    @media (min-width: 767px) {
+        display: block;
+    }
+    
     > .logo {
         width: 25px;
         margin-left: 10px;
@@ -79,11 +89,6 @@ const SidebarContainer = styled.div`
             display: block;
         }
     }
-
-    color: black;
-    background-color: white;
-    padding: 0 13px;
-    border-right: 1px solid lightgray;
 `;
 
 const MoreButton = styled.div`

@@ -6,8 +6,9 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 export default function ProfileDisplay() {
     return (
         <ProfileSnippet>
-            <ProfileImage>
-                <ProfileImageBox>
+            {/* <ProfileHeader></ProfileHeader> */}
+            <ProfileImage className='profileImage'>
+                <ProfileImageBox className='profileImageBox'>
                     <img src='https://www.mykhel.com/thumb/247x100x233/cricket/players/8/3788.jpg' alt='profile-pic' />
                 </ProfileImageBox>
             </ProfileImage>
@@ -33,7 +34,8 @@ export default function ProfileDisplay() {
                     <h3>Virat Kohli</h3>
 
                     <h4>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        🫶🏼 <br></br>
+                        @indiancricket
                     </h4>
 
                     <a href='https://www.google.com' target='_blank' rel='noreferrer noopener'>
@@ -45,18 +47,21 @@ export default function ProfileDisplay() {
     );
 }
 
+// const ProfileHeader = styled.div``;
+
 const ProfileSnippet = styled.div`
     display: flex;
 `;
 
 const ProfileImage = styled.div`
-    flex: 0.3;
+    flex: 0.332;
+    display: flex;
 `;
 
 const ProfileImageBox = styled.div`
     height: 150px;
     width: 150px;
-    margin: 0 auto;
+    margin: auto;
 
     > img {
         height: 99%;
@@ -81,7 +86,6 @@ const ProfileDetailsTopRow = styled.div`
     > h4 {
         font-size: 20px;
         font-weight: 400;
-        /* margin-top: 3px; */
         color: #222222;
     }
 

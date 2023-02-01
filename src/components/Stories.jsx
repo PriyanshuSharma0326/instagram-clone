@@ -66,7 +66,7 @@ export default function Stories() {
 }
 
 const StoriesContainer = styled.div`
-    padding: 45px 0 32px 0;
+    padding: 32px 0 30px 0;
     width: 100%;
     display: flex;
     overflow-y: hidden;
@@ -74,5 +74,9 @@ const StoriesContainer = styled.div`
 
     ::-webkit-scrollbar {
         display: none;
+    }
+
+    @media (min-width: 767px) {
+        padding: 45px 0 32px 0;
     }
 `;
