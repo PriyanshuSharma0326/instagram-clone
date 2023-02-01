@@ -52,7 +52,7 @@ const StoryImageContainer = styled.div`
         margin-left: 2px;
         object-fit: cover;
         border-radius: 50%;
-        padding: 1px;
+        padding: 2px;
         border: 2px solid red;
     }
 `;

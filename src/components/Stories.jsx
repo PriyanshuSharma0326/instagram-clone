@@ -6,23 +6,11 @@ export default function Stories() {
     return (
         <StoriesContainer>
             <Story 
-                imgURL='https://englishtribuneimages.blob.core.windows.net/gallary-content/2021/11/2021_11$largeimg_1236781513.JPG'
-                username='chrisgayle333'
-            />
-            <Story 
-                imgURL='https://navbharattimes.indiatimes.com/thumb/msid-71098959,imgsize-197886,width-540,height-405,resizemode-75/shubhman-gill-2-71098959.jpg'
-                username='shubmangill'
-            />
-            <Story 
-                imgURL='https://akm-img-a-in.tosshub.com/businesstoday/images/story/202001/bhuvan_bam_660_200120112916.jpg'
-                username='bhvan.bam22'
-            />
-            <Story 
-                imgURL='https://www.mykhel.com/thumb/247x100x233/cricket/players/8/3788.jpg'
+                imgURL='https://instabig.net/s/download?url=https%3A%2F%2Fscontent-lga3-2.cdninstagram.com%2Fv%2Ft51.2885-19%2F300819866_570261568158298_8443709233593606227_n.jpg%3Fstp%3Ddst-jpg_s320x320%26_nc_ht%3Dscontent-lga3-2.cdninstagram.com%26_nc_cat%3D1%26_nc_ohc%3DfkhxdaH4Rq4AX8UVJbQ%26edm%3DAJfeSrwBAAAA%26ccb%3D7-5%26oh%3D00_AfA3AV1rSJUVlooP1E03JZF8DzVP4mT0kIdhR6tIsbPjMQ%26oe%3D63DE2D1E%26_nc_sid%3D588073'
                 username='virat.kohli'
             />
             <Story 
-                imgURL='https://newyorkfolk.com/wp-content/uploads/2022/12/rs_1200x1200-221230150610-1200.cristiano-ronaldo-GettyImages-1245889188.jpg'
+                imgURL='https://instabig.net/s/download?url=https%3A%2F%2Fscontent-waw1-1.cdninstagram.com%2Fv%2Ft51.2885-19%2F278931269_360124899498969_9006978846103417088_n.jpg%3Fstp%3Ddst-jpg_s320x320%26_nc_ht%3Dscontent-waw1-1.cdninstagram.com%26_nc_cat%3D1%26_nc_ohc%3Dj9axwBoReekAX-S0I7A%26edm%3DAJfeSrwBAAAA%26ccb%3D7-5%26oh%3D00_AfDcULJpIWoQefTZOjd5fC-1uMKwDuUfAy3CzE6eafOuoA%26oe%3D63DEFC8E%26_nc_sid%3D588073'
                 username='cristiano'
             />
             <Story 
@@ -50,16 +38,28 @@ export default function Stories() {
                 username='jok32'
             />
             <Story 
-                imgURL='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/1200px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png'
+                imgURL='https://instabig.net/s/download?url=https%3A%2F%2Fscontent-fml2-1.cdninstagram.com%2Fv%2Ft51.2885-19%2F242368597_546988173055301_749927305222720765_n.jpg%3Fstp%3Ddst-jpg_s320x320%26_nc_ht%3Dscontent-fml2-1.cdninstagram.com%26_nc_cat%3D1%26_nc_ohc%3DvXF2DbtXe9kAX-IbVHc%26edm%3DAJfeSrwBAAAA%26ccb%3D7-5%26oh%3D00_AfCiLzzoWLHLYUwp_VEQpGjyDHeYZyo2CLDLUCKhNURfjw%26oe%3D63DF6BF3%26_nc_sid%3D588073'
                 username='fcbayern'
             />
             <Story 
-                imgURL='https://img.fcbayern.com/image/upload/t_cms-2x1/f_auto/w_1600,c_fill/q_auto/v1674122997/cms/public/images/fcbayern-com/homepage/Saison-22-23/Galerien/Sommer-Transfer/07-yann-sommer-fc-bayern-190123-mel.jpg'
+                imgURL='https://instabig.net/s/download?url=https%3A%2F%2Fscontent-cdg2-1.cdninstagram.com%2Fv%2Ft51.2885-19%2F316136133_950089873061545_5922933596603251528_n.jpg%3Fstp%3Ddst-jpg_s320x320%26_nc_ht%3Dscontent-cdg2-1.cdninstagram.com%26_nc_cat%3D1%26_nc_ohc%3D5h0i2EkD99wAX-vZ1dx%26edm%3DAJfeSrwBAAAA%26ccb%3D7-5%26oh%3D00_AfCod1hGirRPCHR3WxH0Y_L99E0Ot6cmJojXkFLrBsgOHA%26oe%3D63E00E68%26_nc_sid%3D588073'
                 username='ysommer1'
             />
             <Story 
                 imgURL='https://i.ytimg.com/vi/Z1K4BUtHsO4/maxresdefault.jpg'
                 username='puneetsuper_starrr'
+            />
+            <Story 
+                imgURL='https://instabig.net/s/download?url=https%3A%2F%2Fscontent-lhr8-1.cdninstagram.com%2Fv%2Ft51.2885-19%2F322409702_669639211555902_7085134662303293369_n.jpg%3Fstp%3Ddst-jpg_s320x320%26_nc_ht%3Dscontent-lhr8-1.cdninstagram.com%26_nc_cat%3D1%26_nc_ohc%3D6uwigvR5vd4AX-yn-zC%26edm%3DAJfeSrwBAAAA%26ccb%3D7-5%26oh%3D00_AfDAqWx9qwxO_WldGOq-2gB59Pqk1OsT0ue2pLU6VGsuvA%26oe%3D63DE50DA%26_nc_sid%3D588073'
+                username='jennaortega'
+            />
+            <Story 
+                imgURL='https://akm-img-a-in.tosshub.com/businesstoday/images/story/202001/bhuvan_bam_660_200120112916.jpg'
+                username='bhuvan.bam22'
+            />
+            <Story 
+                imgURL='https://instabig.net/s/download?url=https%3A%2F%2Fscontent-lax3-2.cdninstagram.com%2Fv%2Ft51.2885-19%2F284862995_3134372610147984_2823085744628372041_n.jpg%3Fstp%3Ddst-jpg_s320x320%26_nc_ht%3Dscontent-lax3-2.cdninstagram.com%26_nc_cat%3D100%26_nc_ohc%3DKsqvJIoSj_gAX-53eDR%26edm%3DAJfeSrwBAAAA%26ccb%3D7-5%26oh%3D00_AfAeMlnxqS5xSGECethB1GKR2xVYaFJuWvgBFr-ickAY1Q%26oe%3D63E00ACC%26_nc_sid%3D588073'
+                username='dalimachhibber_17'
             />
         </StoriesContainer>
     );

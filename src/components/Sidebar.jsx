@@ -16,7 +16,17 @@ import DensityMediumOutlinedIcon from '@mui/icons-material/DensityMediumOutlined
 export default function Sidebar() {
     return (
         <SidebarContainer>
-            <img src='https://www.pngitem.com/pimgs/m/132-1327993_instagram-logo-word-png-transparent-png.png' alt='instagram' />
+            <img 
+                className='logo'
+                src='https://cdn-icons-png.flaticon.com/512/87/87390.png' 
+                alt='instagram' 
+            />
+
+            <img 
+                className='full-logo'
+                src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png' 
+                alt='instagram' 
+            />
 
             <SidebarOptions 
                 homePage
@@ -34,26 +44,48 @@ export default function Sidebar() {
                 Icon={AccountCircleRoundedIcon} 
                 title='Profile' 
             />
-
-            <SidebarOptions Icon={DensityMediumOutlinedIcon} title='More' />
+            
+            <MoreButton>
+                <SidebarOptions Icon={DensityMediumOutlinedIcon} title='More' />
+            </MoreButton>
         </SidebarContainer>
     );
 }
 
 const SidebarContainer = styled.div`
-    color: black;
-    background-color: white;
-    flex: 0.16;
-    width: 250px;
-    border-right: 1px solid lightgray;
-    height: 100vh;
+    > .logo {
+        width: 25px;
+        margin-left: 10px;
+        margin-top: 35px;
+        margin-bottom: 42px;
+        cursor: pointer;
+        display: block;
 
-    > img {
+        @media (min-width: 1264px) {
+            display: none;
+            margin-bottom: 25px;
+        }
+    }
+
+    > .full-logo {
         width: 110px;
-        margin-left: 20px;
+        margin-left: 10px;
         margin-top: 35px;
         margin-bottom: 25px;
+        cursor: pointer;
+        display: none;
+
+        @media (min-width: 1264px) {
+            display: block;
+        }
     }
+
+    color: black;
+    background-color: white;
+    padding: 0 13px;
+    border-right: 1px solid lightgray;
 `;
 
-
+const MoreButton = styled.div`
+    margin-top: 90px;
+`;

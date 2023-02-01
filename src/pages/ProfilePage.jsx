@@ -21,6 +21,8 @@ export default function ProfilePage() {
 
 const ProfilePageContainer = styled.div`
     flex: 0.84;
+    flex-grow: 1;
+    display: flex;
     overflow-y: scroll;
 `;
 

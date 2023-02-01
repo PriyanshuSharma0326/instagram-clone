@@ -13,7 +13,7 @@ export default function AccountAndMore() {
                 <ImageContainer>
                     <img 
                         onClick={() => {navigate('/virat.kohli/');}}
-                        src='https://www.mykhel.com/thumb/247x100x233/cricket/players/8/3788.jpg'
+                        src='https://instabig.net/s/download?url=https%3A%2F%2Fscontent-lga3-2.cdninstagram.com%2Fv%2Ft51.2885-19%2F300819866_570261568158298_8443709233593606227_n.jpg%3Fstp%3Ddst-jpg_s320x320%26_nc_ht%3Dscontent-lga3-2.cdninstagram.com%26_nc_cat%3D1%26_nc_ohc%3DfkhxdaH4Rq4AX8UVJbQ%26edm%3DAJfeSrwBAAAA%26ccb%3D7-5%26oh%3D00_AfA3AV1rSJUVlooP1E03JZF8DzVP4mT0kIdhR6tIsbPjMQ%26oe%3D63DE2D1E%26_nc_sid%3D588073'
                         alt='virat.kohli'
                     />
                 </ImageContainer>
@@ -44,7 +44,13 @@ export default function AccountAndMore() {
 }
 
 const AccountAndMoreContainer = styled.div`
-    padding: 55px 0 0 65px;
+    margin-top: 55px;
+    margin-left: 65px;
+    display: none;
+
+    @media (min-width: 1000px) {
+        display: block;
+    }
 `;
 
 const ImageContainer = styled.div`

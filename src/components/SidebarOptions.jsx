@@ -22,13 +22,17 @@ export default function SidebarOptions({ Icon, title, profilePage, homePage }) {
 }
 
 const SidebarOptionContainer = styled.div`
-    padding: 4px 0 4px 13px;
+    padding: 4px 0 4px 0;
+    width: 48px;
+
+    @media (min-width: 1264px) {
+        width: 218px;
+    }
 `;
 
 const SidebarOption = styled.div`
     display: flex;
     align-items: center;
-    width: 92%;
     border-radius: 50px;
 
     > h3 {
@@ -36,6 +40,11 @@ const SidebarOption = styled.div`
         font-weight: 400;
         margin-left: 4px;
         margin-bottom: 2px;
+        display: none;
+
+        @media (min-width: 1264px) {
+            display: block;
+        }
     }
 
     > .MuiSvgIcon-root {

@@ -20,10 +20,6 @@ export default function Posts() {
                 imgURL='https://upload.wikimedia.org/wikipedia/commons/d/dc/Chris_Gayle.png'
             />
             <Post 
-                username='virat.kohli' 
-                imgURL='https://imgnew.outlookindia.com/public/uploads/articles/2021/5/1/Gayle-Chahal-Flex-IPL-2021.jpg'
-            />
-            <Post 
                 username='mahi7781' 
                 imgURL='https://images.hindustantimes.com/img/2023/01/12/1600x900/Virat_Kohli_MS_Dhoni_1636427886192_1673539397747_1673539397747.jpg'
                 description='Its always great to meet this boy.'
@@ -35,5 +31,4 @@ export default function Posts() {
 const PostsContainer = styled.div`
     width: 100%;
     height: fit-content;
-    /* margin-bottom: 0; */
 `;

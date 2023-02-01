@@ -78,6 +78,7 @@ const PostImage = styled.div`
         width: 100%;
         border-radius: 3px;
         cursor: pointer;
+        border: 1px solid lightgray;
     }
 `;
 
