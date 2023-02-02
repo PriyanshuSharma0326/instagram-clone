@@ -5,9 +5,11 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
-// import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
-export default function Post({ username, imgURL, description }) {
+export default function Post({ username, day, location, imgURL, description }) {
     function truncate(string, n) {
         return string?.length > n ? string.substr(0, n-1) + ' ...' : string;
     }
@@ -21,7 +23,19 @@ export default function Post({ username, imgURL, description }) {
             <PostHeader>
                 <AccountCircleRoundedIcon />
 
-                <h4>{username}</h4>
+                <HeaderText>
+                    <HeaderTextTop>
+                        <h4>{username}</h4>
+
+                        <FiberManualRecordIcon />
+
+                        <h5>{day}d</h5>
+                    </HeaderTextTop>
+
+                    {location && <h5>{location}</h5>}
+                </HeaderText>
+
+                <MoreHorizIcon className='options' />
             </PostHeader>
 
             <PostImage>
@@ -33,7 +47,7 @@ export default function Post({ username, imgURL, description }) {
                 <ModeCommentOutlinedIcon />
                 <NearMeOutlinedIcon />
 
-                {/* <BookmarkBorderOutlinedIcon /> */}
+                <BookmarkBorderOutlinedIcon className='bookmark' />
             </PostAction>
 
             <PostFooter>
@@ -50,6 +64,9 @@ export default function Post({ username, imgURL, description }) {
 }
 
 const PostContainer = styled.div`
+    display: block;
+    border-bottom: 1px solid lightgray;
+    padding: 15px 0;
 `;
 
 const PostHeader = styled.div`
@@ -62,12 +79,52 @@ const PostHeader = styled.div`
         cursor: pointer;
     }
 
+    .options {
+        font-size: 20px;
+        margin-left: auto;
+        padding: unset;
+
+        :hover {
+            color: rgb(142, 142, 142);
+        }
+    }
+`;
+
+const HeaderText = styled.div`
+    > h5 {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgb(38, 38, 38);
+        cursor: pointer;
+    }
+`;
+
+const HeaderTextTop = styled.div`
+    display: flex;
+    align-items: center;
+
     > h4 {
         font-size: 14px;
         font-weight: 500;
-        margin-top: 3px;
         color: #222222;
         cursor: pointer;
+
+        :hover {
+            color: rgb(142, 142, 142);
+        }
+    }
+
+    > .MuiSvgIcon-root {
+        font-size: 5.5px;
+        margin-left: 7px;
+        margin-right: 5px;
+        color: rgb(142, 142, 142);
+    }
+
+    > h5 {
+        color: rgb(142, 142, 142);
+        font-size: 14px;
+        font-weight: 400;
     }
 `;
 
@@ -75,7 +132,7 @@ const PostImage = styled.div`
     line-height: 0%;
 
     img {
-        width: 100%;
+        width: 99.5%;
         border-radius: 3px;
         cursor: pointer;
         border: 1px solid lightgray;
@@ -95,6 +152,11 @@ const PostAction = styled.div`
         :hover {
             opacity: 0.5;
         }
+    }
+
+    .bookmark {
+        margin-left: auto;
+        margin-right: unset;
     }
 `;
 
