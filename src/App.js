@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Sidebar from './components/Sidebar';
 import ProfilePage from './pages/ProfilePage';
+import HomeHeader from './components/HomeHeader';
+import AppFooter from './components/AppFooter';
 
 function App() {
     return (
@@ -13,9 +15,16 @@ function App() {
                     <Sidebar />
 
                     <Routes>
-                        <Route path='/' element={<HomePage />} />
+                        <Route path='/' 
+                            element={<>
+                                <HomeHeader />
+                                <HomePage />
+                            </>}
+                        />
                         <Route path='/virat.kohli/' element={<ProfilePage />} />
                     </Routes>
+
+                    <AppFooter />
                 </AppBody>
             </Router>
         </div>

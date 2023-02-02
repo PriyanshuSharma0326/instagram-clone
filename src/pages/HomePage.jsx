@@ -1,16 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
 import AccountAndMore from '../components/AccountAndMore';
-import AppFooter from '../components/AppFooter';
-import HomeHeader from '../components/HomeHeader';
 import Posts from '../components/Posts';
 import Stories from '../components/Stories';
 
 export default function HomePage() {
     return (
         <HomePageContainer>
-            <HomeHeader />
-
             <ContentContainer>
                 <Stories />
 
@@ -18,8 +14,6 @@ export default function HomePage() {
             </ContentContainer>
             
             <AccountAndMore />
-
-            <AppFooter />
         </HomePageContainer>
     );
 }
@@ -28,18 +22,20 @@ const HomePageContainer = styled.div`
     flex: 0.84;
     flex-grow: 1;
     overflow-y: scroll;
-    /* position: relative; */
+    margin-top: 60px;
+    margin-bottom: 48px;
 
     @media (min-width: 767px) {
         display: flex;
+        margin-top: unset;
+        margin-bottom: unset;
     }
 `;
 
 const ContentContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
-    padding-top: 60px;
-    padding-bottom: 24px;
+    /* padding-bottom: 24px; */
     width: 472px;
 
     @media (min-width: 1000px) {

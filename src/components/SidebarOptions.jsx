@@ -49,7 +49,7 @@ const SidebarOption = styled.div`
 
     > .MuiSvgIcon-root {
         font-size: 30px;
-        padding: 9px 9px 9px 9px;
+        padding: 9px;
     }
 
     :hover {
