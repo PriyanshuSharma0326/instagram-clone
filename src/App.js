@@ -6,12 +6,21 @@ import Sidebar from './components/Sidebar';
 import ProfilePage from './pages/ProfilePage';
 import HomeHeader from './components/HomeHeader';
 import AppFooter from './components/AppFooter';
+import LoginPage from './pages/LoginPage';
 
 function App() {
+    const user = null;
+
     return (
         <div className='app'>
             <Router>
-                <AppBody>
+                {!user ? 
+                (<Routes>
+                    <Route path='/' element={<LoginPage />} />
+                    
+                    <Route path='/accounts/emailsignup/' element={<h1>Sign up here</h1>} />
+                </Routes>) : 
+                (<AppBody>
                     <Sidebar />
 
                     <Routes>
@@ -25,7 +34,7 @@ function App() {
                     </Routes>
 
                     <AppFooter />
-                </AppBody>
+                </AppBody>)}
             </Router>
         </div>
     );
