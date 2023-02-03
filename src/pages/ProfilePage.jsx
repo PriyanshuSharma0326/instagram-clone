@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import ProfileDisplay from '../components/ProfileDisplay';
 import ProfilePosts from '../components/ProfilePosts';
 
-// import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-
 export default function ProfilePage() {
     return (
         <ProfilePageContainer>

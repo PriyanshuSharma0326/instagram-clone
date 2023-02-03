@@ -46,7 +46,11 @@ export default function Sidebar() {
             />
             
             <MoreButton>
-                <SidebarOptions Icon={DensityMediumOutlinedIcon} title='More' />
+                <SidebarOptions 
+                    moreButton
+                    Icon={DensityMediumOutlinedIcon} 
+                    title='More' 
+                />
             </MoreButton>
         </SidebarContainer>
     );

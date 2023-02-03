@@ -6,17 +6,18 @@ import { auth } from '../lib/config/firebase';
 
 import { useNavigate } from 'react-router-dom';
 
-
-export default function LoginPage() {
+export default function SignUpPage() {
     const navigate = useNavigate();
 
     const emailRef = useRef(null);
+    const fullNameRef = useRef(null);
+    const usernameRef = useRef(null);
     const passwordRef = useRef(null);
 
-    const signIn = (event) => {
+    const register = (event) => {
         event.preventDefault();
 
-        auth.signInWithEmailAndPassword(
+        auth.createUserWithEmailAndPassword(
             emailRef.current.value,
             passwordRef.current.value
         ).then((auth) => {
@@ -27,21 +28,27 @@ export default function LoginPage() {
     }
 
     return (
-        <LoginPageContainer>
+        <SignUpPageContainer>
             <BoxContainer>
-                <LoginForm>
+                <SignUpForm>
                     <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png' alt='logo' />
+                    
+                    <h2>Sign up to see photos and videos from your friends.</h2>
 
                     <input ref={emailRef}  placeholder='Email' type='email' />
 
+                    <input ref={fullNameRef}  placeholder='Full Name' type='text' />
+
+                    <input ref={usernameRef}  placeholder='Username' type='text' />
+
                     <input ref={passwordRef} placeholder='Password' type='password' />
 
-                    <button onClick={signIn}>Log in</button>
-                </LoginForm>
+                    <button onClick={register}>Sign up</button>
+                </SignUpForm>
 
-                <SignUpBox>
-                    <h4>Don't have an account? <span onClick={() => {navigate('/accounts/emailsignup/');}}>Sign up</span></h4>
-                </SignUpBox>
+                <LoginBox>
+                    <h4>Have an account? <span onClick={() => {navigate('/');}}>Log in</span></h4>
+                </LoginBox>
 
                 <AppLinks>
                     <FooterText>
@@ -62,11 +69,11 @@ export default function LoginPage() {
 
                 <SocialLinks />
             </BoxContainer>
-        </LoginPageContainer>
+        </SignUpPageContainer>
     );
 }
 
-const LoginPageContainer = styled.div`
+const SignUpPageContainer = styled.div`
     display: flex;
     height: 100vh;
     background-color: rgb(250, 250, 250);
@@ -76,7 +83,7 @@ const BoxContainer = styled.div`
     margin: auto;
 `;
 
-const LoginForm = styled.div`
+const SignUpForm = styled.div`
     margin: auto;
     width: 348px;
     background-color: white;
@@ -123,9 +130,20 @@ const LoginForm = styled.div`
         color: white;
         margin: 15px auto;
     }
+
+    > h2 {
+        display: block;
+        text-align: center;
+        color: rgb(142, 142, 142);
+        font-size: 17px;
+        font-weight: 600;
+        font-family: var(--profile-font);
+        line-height: 20px;
+        margin: 0 40px 10px;
+    }
 `;
 
-const SignUpBox = styled.div`
+const LoginBox = styled.div`
     display: flex;
     margin-top: 10px;
     width: 348px;
@@ -142,7 +160,6 @@ const SignUpBox = styled.div`
 
         > span {
             color: rgb(0, 149, 246);
-            font-weight: 600;
             cursor: pointer;
             text-decoration: none;
         }

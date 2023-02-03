@@ -2,15 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../lib/config/firebase';
 
-export default function SidebarOptions({ Icon, title, profilePage, homePage }) {
+export default function SidebarOptions({ Icon, title, profilePage, homePage, moreButton }) {
     const navigate = useNavigate();
     
     return (
         <SidebarOptionContainer 
             onClick={
                 (profilePage && (() => {navigate('/virat.kohli/');})) || 
-                (homePage && (() => {navigate('/');}))}
+                (homePage && (() => {navigate('/');})) || 
+                (moreButton && (() => {auth.signOut();}))}
         >
             <SidebarOption>
                 {Icon && <Icon />}
