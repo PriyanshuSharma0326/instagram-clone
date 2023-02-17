@@ -7,8 +7,10 @@ import { UserContext } from '../context/UserContext';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import db, { storage } from '../lib/config/firebase';
 import { doc, updateDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 export default function EditProfile() {
+    const navigate = useNavigate();
     const { userDetails } = useContext(UserContext);
 
     const [name, setName] = useState(userDetails?.displayName);
@@ -34,6 +36,8 @@ export default function EditProfile() {
                                 link: website,
                                 photoURL: downloadURL
                             });
+
+                            navigate(`/${userDetails?.username}/`);
                         }
                         catch (error) {
                             console.log(error);
@@ -53,6 +57,8 @@ export default function EditProfile() {
                     link: website,
                     username: uname,
                 });
+
+                navigate(`/${userDetails?.username}/`);
             }
             catch (error) {
                 console.log(error);
@@ -108,7 +114,8 @@ export default function EditProfile() {
 
                         <TextContainer>
                             <input defaultValue={userDetails?.username} placeholder='Username' type='text' 
-                                onChange={(e) => setUname(e.target.value)}
+                                onChange={(e) => setUname(e.target.value)} 
+                                required
                             />
 
                             <h5>Change your username.</h5>
@@ -139,7 +146,9 @@ export default function EditProfile() {
                                 onChange={(e) => setDescription(e.target.value)}
                             />
 
-                            <h5>0/150</h5>
+                            <h5>
+                                {(description !== undefined) ? description?.length : userDetails?.bio.length}/150
+                            </h5>
                         </TextContainer>
                     </InputContainer>
 

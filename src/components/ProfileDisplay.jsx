@@ -10,24 +10,6 @@ import { useNavigate } from 'react-router-dom';
 export default function ProfileDisplay() {
     const navigate = useNavigate();
 
-    // const { currentUser } = useContext(AuthContext);
-
-    // const [userDetails, setUserDetails] = useState(null);
-
-    // useEffect(() => {
-    //     const getUserDetails = () => {
-    //         const unsubscribe = onSnapshot(doc(db, 'users', currentUser.uid), (doc) => {
-    //             setUserDetails(doc.data());
-    //         });
-
-    //         return () => {
-    //             unsubscribe();
-    //         };
-    //     }
-
-    //     currentUser.uid && getUserDetails();
-    // }, [currentUser?.uid]);
-
     const { userDetails } = useContext(UserContext);
 
     return (
@@ -75,7 +57,7 @@ export default function ProfileDisplay() {
                         {userDetails?.bio}
                     </h4>
 
-                    <a href='abcd' target='_blank' rel='noreferrer noopener'>
+                    <a href={`https://${userDetails?.link}`} target='_blank' rel='noreferrer noopener'>
                         {userDetails?.link}
                     </a>
                 </ProfileDetailsBottomRow>
