@@ -1,26 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import SuggestionAccount from './SuggestionAccount';
 
+import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
+
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 
 export default function AccountAndMore() {
     const navigate = useNavigate();
+
+    const { userDetails } = useContext(UserContext);
 
     return (
         <AccountAndMoreContainer>
             <AccountSnippet>
                 <ImageContainer>
-                    <img 
-                        onClick={() => {navigate('/virat.kohli/');}}
-                        src='https://instabig.net/s/download?url=https%3A%2F%2Fscontent-lga3-2.cdninstagram.com%2Fv%2Ft51.2885-19%2F300819866_570261568158298_8443709233593606227_n.jpg%3Fstp%3Ddst-jpg_s320x320%26_nc_ht%3Dscontent-lga3-2.cdninstagram.com%26_nc_cat%3D1%26_nc_ohc%3DfkhxdaH4Rq4AX8UVJbQ%26edm%3DAJfeSrwBAAAA%26ccb%3D7-5%26oh%3D00_AfA3AV1rSJUVlooP1E03JZF8DzVP4mT0kIdhR6tIsbPjMQ%26oe%3D63DE2D1E%26_nc_sid%3D588073'
-                        alt='virat.kohli'
-                    />
+                    {userDetails?.photoURL ? 
+                        <img 
+                            onClick={() => {navigate(`/${userDetails?.username}/`);}}
+                            src={userDetails?.photoURL}
+                            alt=''
+                        /> : 
+                        <AccountCircleSharpIcon />
+                    }
                 </ImageContainer>
 
                 <AccountDesc>
-                    <h5 onClick={() => {navigate('/virat.kohli/');}}>virat.kohli</h5>
-                    <h4>Virat Kohli</h4>
+                    <h5 onClick={() => {navigate(`/${userDetails?.username}/`);}}>{userDetails?.username}</h5>
+                    <h4>{userDetails?.displayName}</h4>
                 </AccountDesc>
 
                 <SwitchLink>
@@ -63,6 +71,12 @@ const ImageContainer = styled.div`
         border: 0.5px solid lightgray;
         border-radius: 50%;
         cursor: pointer;
+    }
+
+    > .MuiSvgIcon-root {
+        height: 60px;
+        width: 60px;
+        color: #454545;
     }
 `;
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -7,40 +7,37 @@ import ProfilePage from './pages/ProfilePage';
 import HomeHeader from './components/HomeHeader';
 import AppFooter from './components/AppFooter';
 import LoginPage from './pages/LoginPage';
-
-import { auth } from './lib/config/firebase';
-
-import { useDispatch, useSelector } from 'react-redux';
-import { login, logout, selectUser } from './features/userSlice';
 import SignUpPage from './pages/SignUpPage';
+import EditProfile from './components/EditProfile';
+
+import { AuthContext } from './context/AuthContext';
+import { UserContext } from './context/UserContext';
 
 function App() {
-    // const user = null;
-    const user = useSelector(selectUser);
-    console.log(user);
+    const { currentUser } = useContext(AuthContext);
 
-    const dispatch = useDispatch();
+    // const [userDetails, setUserDetails] = useState(null);
+    
+    // useEffect(() => {
+    //     const getUserDetails = () => {
+    //         const unsubscribe = onSnapshot(doc(db, 'users', currentUser.uid), (doc) => {
+    //             setUserDetails(doc.data());
+    //         });
 
-    useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged(userAuth => {
-            if(userAuth) {
-                dispatch(login({
-                    uid: userAuth.uid,
-                    email: userAuth.email,
-                }));
-            }
-            else {
-                dispatch(logout());
-            }
-        });
+    //         return () => {
+    //             unsubscribe();
+    //         };
+    //     }
 
-        return unsubscribe;
-    }, [dispatch]);
+    //     currentUser.uid && getUserDetails();
+    // }, [currentUser?.uid]);
+
+    const { userDetails } = useContext(UserContext);
 
     return (
         <div className='app'>
             <Router>
-                {!user ? 
+                {!currentUser ? 
                 (<Routes>
                     <Route path='/' element={<LoginPage />} />
                     
@@ -56,7 +53,10 @@ function App() {
                                 <HomePage />
                             </>}
                         />
-                        <Route path='/virat.kohli/' element={<ProfilePage />} />
+
+                        <Route path={`/${userDetails?.username}/`} element={<ProfilePage />} />
+
+                        <Route path='/accounts/edit/' element={<EditProfile />} />
                     </Routes>
 
                     <AppFooter />

@@ -13,7 +13,8 @@ const firebaseConfig = {
 };
 
 const app = firebase.initializeApp(firebaseConfig);
-const storage = getStorage(app);
+
+const storage = getStorage();
 
 const db = app.firestore();
 

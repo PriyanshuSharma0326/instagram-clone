@@ -1,49 +1,73 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import SocialLinks from '../components/SocialLinks';
 
-import { auth } from '../lib/config/firebase';
+import db, { auth } from '../lib/config/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 
 import { useNavigate } from 'react-router-dom';
 
 export default function SignUpPage() {
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const emailRef = useRef(null);
-    const fullNameRef = useRef(null);
-    const usernameRef = useRef(null);
-    const passwordRef = useRef(null);
+    const handleSubmit = async (e) => {
+        setLoading(true);
+        e.preventDefault();
 
-    const register = (event) => {
-        event.preventDefault();
+        const email = e.target[0].value;
+        const displayName = e.target[1].value;
+        const username = e.target[2].value;
+        const password = e.target[3].value;
 
-        auth.createUserWithEmailAndPassword(
-            emailRef.current.value,
-            passwordRef.current.value
-        ).then((auth) => {
-            console.log(auth.user);
-        }).catch((error) => {
-            alert(error.message);
-        });
+        try {
+            const res = await createUserWithEmailAndPassword(auth, email, password);
+
+            try {
+                await setDoc(doc(db, 'users', res.user.uid), {
+                    uid: res.user.uid,
+                    displayName,
+                    email,
+                    photoURL: '',
+                    username,
+                    bio: '',
+                    link: '',
+                });
+
+                await setDoc(doc(db, 'userPosts', res.user.uid), {});
+
+                navigate('/');
+            }
+            catch (error) {
+                setError(true);
+                setLoading(false);
+            }
+        }
+        catch (error) {
+            setError(true);
+            setLoading(false);
+        }
     }
 
     return (
         <SignUpPageContainer>
             <BoxContainer>
-                <SignUpForm>
+                <SignUpForm onSubmit={handleSubmit}>
                     <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png' alt='logo' />
                     
                     <h2>Sign up to see photos and videos from your friends.</h2>
 
-                    <input ref={emailRef}  placeholder='Email' type='email' />
+                    <input placeholder='Email' type='email' />
 
-                    <input ref={fullNameRef}  placeholder='Full Name' type='text' />
+                    <input placeholder='Full Name' type='text' />
 
-                    <input ref={usernameRef}  placeholder='Username' type='text' />
+                    <input placeholder='Username' type='text' />
 
-                    <input ref={passwordRef} placeholder='Password' type='password' />
+                    <input placeholder='Password' type='password' />
 
-                    <button onClick={register}>Sign up</button>
+                    <button disabled={loading}>Sign up</button>
                 </SignUpForm>
 
                 <LoginBox>
@@ -83,7 +107,7 @@ const BoxContainer = styled.div`
     margin: auto;
 `;
 
-const SignUpForm = styled.div`
+const SignUpForm = styled.form`
     margin: auto;
     width: 348px;
     background-color: white;

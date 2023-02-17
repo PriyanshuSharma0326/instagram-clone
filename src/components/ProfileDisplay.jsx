@@ -1,23 +1,53 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
+
+import { UserContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProfileDisplay() {
+    const navigate = useNavigate();
+
+    // const { currentUser } = useContext(AuthContext);
+
+    // const [userDetails, setUserDetails] = useState(null);
+
+    // useEffect(() => {
+    //     const getUserDetails = () => {
+    //         const unsubscribe = onSnapshot(doc(db, 'users', currentUser.uid), (doc) => {
+    //             setUserDetails(doc.data());
+    //         });
+
+    //         return () => {
+    //             unsubscribe();
+    //         };
+    //     }
+
+    //     currentUser.uid && getUserDetails();
+    // }, [currentUser?.uid]);
+
+    const { userDetails } = useContext(UserContext);
+
     return (
         <ProfileSnippet>
-            {/* <ProfileHeader></ProfileHeader> */}
             <ProfileImage className='profileImage'>
                 <ProfileImageBox className='profileImageBox'>
-                    <img src='https://www.mykhel.com/thumb/247x100x233/cricket/players/8/3788.jpg' alt='profile-pic' />
+                    {userDetails?.photoURL ? 
+                        <img src={userDetails?.photoURL} alt='' /> : 
+                        <AccountCircleSharpIcon />
+                    }
                 </ProfileImageBox>
             </ProfileImage>
 
             <ProfileDetails>
                 <ProfileDetailsTopRow>
-                    <h4>virat.kohli</h4>
+                    <h4>
+                        {userDetails?.username}
+                    </h4>
 
-                    <EditProfileButton>
+                    <EditProfileButton onClick={() => navigate('/accounts/edit/')}>
                         Edit profile
                     </EditProfileButton>
 
@@ -25,29 +55,34 @@ export default function ProfileDisplay() {
                 </ProfileDetailsTopRow>
 
                 <ProfileDetailsMidRow>
-                    <h4><span>12</span> posts</h4>
-                    <h4 className='midRowButton'><span>135</span> followers</h4>
-                    <h4 className='midRowButton'><span>85</span> following</h4>
+                    <h4><span>0</span> posts</h4>
+
+                    <h4 className='midRowButton'>
+                        <span>0</span> followers
+                    </h4>
+                    
+                    <h4 className='midRowButton'>
+                        <span>0</span> following
+                    </h4>
                 </ProfileDetailsMidRow>
 
                 <ProfileDetailsBottomRow>
-                    <h3>Virat Kohli</h3>
+                    <h3>
+                        {userDetails?.displayName}
+                    </h3>
 
                     <h4>
-                        🫶🏼 <br></br>
-                        @indiancricket
+                        {userDetails?.bio}
                     </h4>
 
-                    <a href='https://www.google.com' target='_blank' rel='noreferrer noopener'>
-                        https://www.google.com
+                    <a href='abcd' target='_blank' rel='noreferrer noopener'>
+                        {userDetails?.link}
                     </a>
                 </ProfileDetailsBottomRow>
             </ProfileDetails>
         </ProfileSnippet>
     );
 }
-
-// const ProfileHeader = styled.div``;
 
 const ProfileSnippet = styled.div`
     display: flex;
@@ -69,6 +104,13 @@ const ProfileImageBox = styled.div`
         border: 0.8px solid gray;
         border-radius: 50%;
         object-fit: cover;
+        cursor: pointer;
+    }
+
+    > .MuiSvgIcon-root {
+        height: 99%;
+        width: 99%;
+        color: #454545;
         cursor: pointer;
     }
 `;

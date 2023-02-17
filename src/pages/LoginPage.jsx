@@ -6,7 +6,6 @@ import { auth } from '../lib/config/firebase';
 
 import { useNavigate } from 'react-router-dom';
 
-
 export default function LoginPage() {
     const navigate = useNavigate();
 
@@ -19,11 +18,11 @@ export default function LoginPage() {
         auth.signInWithEmailAndPassword(
             emailRef.current.value,
             passwordRef.current.value
-        ).then((auth) => {
-            console.log(auth.user);
-        }).catch((error) => {
+        ).catch((error) => {
             alert(error.message);
         });
+
+        navigate('/');
     }
 
     return (

@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../lib/config/firebase';
+import { UserContext } from '../context/UserContext';
 
 export default function SidebarOptions({ Icon, title, profilePage, homePage, moreButton }) {
     const navigate = useNavigate();
+
+    const { userDetails } = useContext(UserContext);
     
     return (
         <SidebarOptionContainer 
             onClick={
-                (profilePage && (() => {navigate('/virat.kohli/');})) || 
+                (profilePage && (() => {navigate(`/${userDetails?.username}/`);})) || 
                 (homePage && (() => {navigate('/');})) || 
-                (moreButton && (() => {auth.signOut();}))}
+                (moreButton && (() => {auth.signOut(); navigate('/');}))}
         >
             <SidebarOption>
                 {Icon && <Icon />}
