@@ -2,15 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+// import { useNavigate } from 'react-router-dom';
 
-export default function SuggestionAccount() {
+export default function SuggestionAccount({ username, photoURL }) {
+    // const navigate = useNavigate();
+
     return (
         <SuggestionAccountContainer>
             <SuggestionAccountPreview>
-                <AccountCircleRoundedIcon />
+                {photoURL ? 
+                    <img 
+                        // onClick={() => {navigate(`/${username}/`);}}
+                        src={photoURL}
+                        alt=''
+                    /> : 
+                    <AccountCircleRoundedIcon />
+                }
 
                 <SuggestionAccountDesc>
-                    <h5>xtechilad</h5>
+                    <h5 
+                        // onClick={() => {navigate(`/${username}/`);}}
+                    >
+                        {username}
+                    </h5>
                     <h6>New to Instagram</h6>
                 </SuggestionAccountDesc>
 
@@ -62,7 +76,17 @@ const SuggestionAccountPreview = styled.div`
     > .MuiSvgIcon-root {
         font-size: 38px;
         padding: 5px 9px 5px 0;
+        color: #454545;
+        cursor: pointer;
+    }
+
+    > img {
+        height: 30px;
+        width: 30px;
+        margin: 9px 11px 9px 4px;
+        object-fit: cover;
+        border: 0.5px solid lightgray;
+        border-radius: 50%;
         cursor: pointer;
     }
 `;
-

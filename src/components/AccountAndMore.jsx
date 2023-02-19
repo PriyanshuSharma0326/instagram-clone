@@ -6,11 +6,15 @@ import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
+import { useCollection } from 'react-firebase-hooks/firestore';
+import db from '../lib/config/firebase';
 
 export default function AccountAndMore() {
     const navigate = useNavigate();
 
     const { userDetails } = useContext(UserContext);
+
+    const [suggestedUsers] = useCollection(db.collection('users'));
 
     return (
         <AccountAndMoreContainer>
@@ -42,10 +46,14 @@ export default function AccountAndMore() {
                     <h3>See All</h3>
                 </SuggestionText>
 
-                <SuggestionAccount />
-                <SuggestionAccount />
-                <SuggestionAccount />
-                <SuggestionAccount />
+                {suggestedUsers?.docs.map((doc) => (
+                    (doc.id !== userDetails.uid) && 
+                    <SuggestionAccount 
+                        key={doc.id} 
+                        username={doc.data().username} 
+                        photoURL={doc.data().photoURL}
+                    />
+                ))}
             </SuggestionContainer>
         </AccountAndMoreContainer>
     );

@@ -55,7 +55,7 @@ export default function Post({ username, day, location, imgURL, description }) {
             <PostFooter>
                 <PostDesc>
                     {/* <DescriptionContainer> */}
-                        <text>{username}</text>
+                        <span id='username'>{username}</span>
 
                         <h5>
                             {!fullDesc ? truncate(description, 30) : description}
@@ -176,8 +176,8 @@ const PostDesc = styled.div`
     display: block;
     align-items: center;
 
-    > text {
-        display: inline-block;
+    > #username {
+        display: inline;
         font-size: 14px;
         font-weight: 500;
         margin-top: 3px;
@@ -186,7 +186,7 @@ const PostDesc = styled.div`
     }
 
     > h5 {
-        display: inline-block;
+        display: inline;
         font-size: 14px;
         font-weight: 400;
         margin-top: 4px;
@@ -194,7 +194,9 @@ const PostDesc = styled.div`
     }
 
     > span {
-        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+        display: inline;
         margin-left: 5px;
         color: #888888;
         cursor: pointer;

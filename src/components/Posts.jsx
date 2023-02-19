@@ -10,7 +10,7 @@ export default function Posts() {
                 location='Lords' 
                 day='3' 
                 imgURL='https://images.hindustantimes.com/img/2022/09/13/1600x900/APTOPIX-Emirates-Asia-Cup-Cricket-1_1663066971405_1663066971405_1663066999978_1663066999978.jpg'
-                description='Scored my 71st century after a long time. Feels great! Scored my 71st century after a long time. Feels great!Scored my 71st century after a long time. Feels great!'
+                description='Scored my 71st century after a long time. Feels great!'
             />
             <Post 
                 username='narendramodi' 
