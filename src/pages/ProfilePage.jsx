@@ -2,8 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import ProfileDisplay from '../components/ProfileDisplay';
 import ProfilePosts from '../components/ProfilePosts';
+// import { UserContext } from '../context/UserContext';
 
 export default function ProfilePage() {
+    // const { userDetails } = useContext(UserContext);
+
+    // useEffect(() => {
+    //     const pageTitle = document.getElementById('page-title');
+    //     const unsubscribe = () => {
+    //         pageTitle.innerText = `${userDetails?.displayName} ${'(@' + userDetails?.username + ') • Instagram photos and videos'}`;
+    //     }
+
+    //     return unsubscribe;
+    // }, [userDetails?.displayName, userDetails?.username]);
+
     return (
         <ProfilePageContainer>
             <Profile>

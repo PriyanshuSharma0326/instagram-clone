@@ -168,6 +168,7 @@ const ProfileDetailsBottomRow = styled.div`
     }
 
     > h4 {
+        margin-top: 3px;
         font-size: 14px;
         font-weight: 400;
     }

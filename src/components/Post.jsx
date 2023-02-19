@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
@@ -10,6 +10,8 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 export default function Post({ username, day, location, imgURL, description }) {
+    const [fullDesc, setFullDesc] = useState(false);
+
     function truncate(string, n) {
         return string?.length > n ? string.substr(0, n-1) + ' ...' : string;
     }
@@ -52,11 +54,17 @@ export default function Post({ username, day, location, imgURL, description }) {
 
             <PostFooter>
                 <PostDesc>
-                    <h4>{username}</h4>
-                    <h5>
-                        {truncate(description, 29)}
-                        {check(description) && <span>more</span>}
-                    </h5>
+                    {/* <DescriptionContainer> */}
+                        <text>{username}</text>
+
+                        <h5>
+                            {!fullDesc ? truncate(description, 30) : description}
+                        </h5>
+
+                        {check(description) && !fullDesc && <span onClick={() => setFullDesc(true)}>more</span>}
+
+                        {check(description) && fullDesc && <span onClick={() => setFullDesc(false)}>less</span>}
+                    {/* </DescriptionContainer> */}
                 </PostDesc>
             </PostFooter>
         </PostContainer>
@@ -165,10 +173,11 @@ const PostFooter = styled.div`
 `;
 
 const PostDesc = styled.div`
-    display: flex;
+    display: block;
     align-items: center;
 
-    > h4 {
+    > text {
+        display: inline-block;
         font-size: 14px;
         font-weight: 500;
         margin-top: 3px;
@@ -177,15 +186,17 @@ const PostDesc = styled.div`
     }
 
     > h5 {
+        display: inline-block;
         font-size: 14px;
         font-weight: 400;
         margin-top: 4px;
         margin-left: 5px;
+    }
 
-        > span {
-            margin-left: 5px;
-            color: #888888;
-            cursor: pointer;
-        }
+    > span {
+        display: inline-block;
+        margin-left: 5px;
+        color: #888888;
+        cursor: pointer;
     }
 `;

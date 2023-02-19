@@ -15,24 +15,11 @@ import { UserContext } from './context/UserContext';
 
 function App() {
     const { currentUser } = useContext(AuthContext);
-
-    // const [userDetails, setUserDetails] = useState(null);
-    
-    // useEffect(() => {
-    //     const getUserDetails = () => {
-    //         const unsubscribe = onSnapshot(doc(db, 'users', currentUser.uid), (doc) => {
-    //             setUserDetails(doc.data());
-    //         });
-
-    //         return () => {
-    //             unsubscribe();
-    //         };
-    //     }
-
-    //     currentUser.uid && getUserDetails();
-    // }, [currentUser?.uid]);
-
     const { userDetails } = useContext(UserContext);
+
+    // const pageTitle = document.getElementById('page-title');
+
+    // pageTitle.innerText = 'Instagram 2.0';
 
     return (
         <div className='app'>
