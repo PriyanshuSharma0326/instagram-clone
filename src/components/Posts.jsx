@@ -39,4 +39,10 @@ export default function Posts() {
 const PostsContainer = styled.div`
     width: 100%;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 488px) {
+        /* margin: 0 10px; */
+    }
 `;

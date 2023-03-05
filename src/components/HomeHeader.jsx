@@ -49,8 +49,8 @@ const HomeHeaderContainer = styled.div`
 
     > .MuiSvgIcon-root {
         font-size: 24px;
-        margin-right: 30px;
-        margin-left: 10px;
+        margin-right: 20px;
+        margin-left: 5px;
         cursor: pointer;
     }
 `;
@@ -60,7 +60,7 @@ const SearchBox = styled.div`
     align-items: center;
     margin-left: auto;
     height: 36px;
-    width: 236px;
+    width: 45%;
     padding: 0 16px;
     margin-right: 12px;
     border-radius: 8px;

@@ -64,7 +64,7 @@ const AccountAndMoreContainer = styled.div`
     margin-left: 65px;
     display: none;
 
-    @media (min-width: 1000px) {
+    @media (min-width: 1160px) {
         display: block;
     }
 `;

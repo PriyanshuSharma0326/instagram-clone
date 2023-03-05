@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../lib/config/firebase';
 import { UserContext } from '../context/UserContext';
 
-export default function SidebarOptions({ Icon, title, profilePage, homePage, moreButton }) {
+export default function SidebarOptions({ Icon, title, profilePage, homePage, createButton, moreButton }) {
     const navigate = useNavigate();
 
     const { userDetails } = useContext(UserContext);
@@ -15,6 +15,7 @@ export default function SidebarOptions({ Icon, title, profilePage, homePage, mor
             onClick={
                 (profilePage && (() => {navigate(`/${userDetails?.username}/`);})) || 
                 (homePage && (() => {navigate('/');})) || 
+                (createButton && (() => {navigate('/create/');})) || 
                 (moreButton && (() => {auth.signOut(); navigate('/');}))}
         >
             <SidebarOption>

@@ -62,8 +62,6 @@ export default function Post({ username, day, location, imgURL, description }) {
                         </h5>
 
                         {check(description) && !fullDesc && <span onClick={() => setFullDesc(true)}>more</span>}
-
-                        {check(description) && fullDesc && <span onClick={() => setFullDesc(false)}>less</span>}
                     {/* </DescriptionContainer> */}
                 </PostDesc>
             </PostFooter>
@@ -72,9 +70,17 @@ export default function Post({ username, day, location, imgURL, description }) {
 }
 
 const PostContainer = styled.div`
-    display: block;
     border-bottom: 1px solid lightgray;
     padding: 15px 0;
+    /* margin: auto; */
+
+    @media (min-width: 488px) {
+        margin: 0 50px;
+    }
+
+    @media (min-width: 1160px) {
+        margin: 0;
+    }
 `;
 
 const PostHeader = styled.div`
@@ -90,10 +96,15 @@ const PostHeader = styled.div`
     .options {
         font-size: 20px;
         margin-left: auto;
+        margin-right: 5px;
         padding: unset;
 
         :hover {
             color: rgb(142, 142, 142);
+        }
+
+        @media (min-width: 767px) {
+            margin-right: unset;
         }
     }
 `;
@@ -150,7 +161,12 @@ const PostImage = styled.div`
 const PostAction = styled.div`
     display: flex;
     align-items: center;
-    padding: 12px 0;
+    padding: 12px 15px;
+
+    @media (min-width: 736px) {
+        padding-left: unset;
+        padding-right: unset;
+    }
 
     > .MuiSvgIcon-root {
         font-size: 28px;
@@ -164,12 +180,21 @@ const PostAction = styled.div`
 
     .bookmark {
         margin-left: auto;
-        margin-right: unset;
+        margin-right: 5px;
+
+        @media (min-width: 767px) {
+            margin-right: unset;
+        }
     }
 `;
 
 const PostFooter = styled.div`
+    padding: 0 15px;
 
+    @media (min-width: 736px) {
+        padding-left: unset;
+        padding-right: unset;
+    }
 `;
 
 const PostDesc = styled.div`

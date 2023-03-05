@@ -9,6 +9,7 @@ import AppFooter from './components/AppFooter';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import EditProfile from './components/EditProfile';
+import CreatePost from './components/CreatePost';
 
 import { AuthContext } from './context/AuthContext';
 import { UserContext } from './context/UserContext';
@@ -44,6 +45,8 @@ function App() {
                         <Route path={`/${userDetails?.username}/`} element={<ProfilePage />} />
 
                         <Route path='/accounts/edit/' element={<EditProfile />} />
+
+                        <Route path='/create/' element={<CreatePost />} />
                     </Routes>
 
                     <AppFooter />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components';
 
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
@@ -7,12 +7,18 @@ import VideoLibraryOutlinedIcon from '@mui/icons-material/VideoLibraryOutlined';
 import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import { UserContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function AppFooter() {
+    const navigate = useNavigate();
+
+    const { userDetails } = useContext(UserContext);
+
     return (
         <AppFooterContainer>
             <IconsContainer>
-                <IconContainer>
+                <IconContainer onClick={() => {navigate('/');}}>
                     <HomeRoundedIcon />
                 </IconContainer>
 
@@ -32,7 +38,7 @@ export default function AppFooter() {
                     <MessageOutlinedIcon />
                 </IconContainer>
 
-                <IconContainer>
+                <IconContainer onClick={() => {navigate(`/${userDetails?.username}/`);}}>
                     <AccountCircleRoundedIcon />
                 </IconContainer>
             </IconsContainer>
@@ -57,12 +63,17 @@ const AppFooterContainer = styled.div`
 const IconsContainer = styled.div`
     display: flex;
     margin: 0 auto;
+    gap: 18px;
+
+    @media (min-width: 488px) {
+        gap: 40px;
+    }
 `;
 
 const IconContainer = styled.div`
     display: flex;
     width: 48px;
-    margin-right: 45px;
+    /* margin-right: 45px; */
 
     > .MuiSvgIcon-root {
         font-size: 30px;

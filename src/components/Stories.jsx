@@ -42,7 +42,7 @@ export default function Stories() {
 }
 
 const StoriesContainer = styled.div`
-    padding: 32px 0 15px 0;
+    padding: 26px 0 10px 0;
     width: 100%;
     display: flex;
     overflow-y: hidden;
@@ -54,5 +54,10 @@ const StoriesContainer = styled.div`
 
     @media (min-width: 767px) {
         padding: 45px 0 17px 0;
+        /* margin: 0 auto; */
+    }
+
+    @media (min-width: 1160px) {
+        /* margin-left: unset; */
     }
 `;

@@ -24,10 +24,20 @@ export default function Story({ imgURL, username }) {
 
 const StoryContainer = styled.div`
     width: 71px;
-    margin-right: 11px;
+    margin-right: 9px;
+    margin-left: 3px;
 
     :hover {
         cursor: pointer;
+    }
+
+    @media (min-width: 767px) {
+        margin-right: 11px;
+        margin-left: auto;
+    }
+
+    @media (min-width: 1160px) {
+        margin-left: unset;
     }
 `;
 

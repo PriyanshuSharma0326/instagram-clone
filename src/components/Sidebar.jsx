@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react';
 import styled from 'styled-components';
 
 import SidebarOptions from './SidebarOptions';
@@ -13,10 +13,10 @@ import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import DensityMediumOutlinedIcon from '@mui/icons-material/DensityMediumOutlined';
 
-import { UserContext } from '../context/UserContext';
+// import { UserContext } from '../context/UserContext';
 
 export default function Sidebar() {
-    const { userDetails } = useContext(UserContext);
+    // const { userDetails } = useContext(UserContext);
 
     return (
         <SidebarContainer>
@@ -42,7 +42,11 @@ export default function Sidebar() {
             <SidebarOptions Icon={VideoLibraryOutlinedIcon} title='Reels' />
             <SidebarOptions Icon={MessageOutlinedIcon} title='Messages' />
             <SidebarOptions Icon={FavoriteBorderRoundedIcon} title='Notifications' />
-            <SidebarOptions Icon={LocalHospitalOutlinedIcon} title='Create' />
+            <SidebarOptions 
+                createButton
+                Icon={LocalHospitalOutlinedIcon} 
+                title='Create' 
+            />
             <SidebarOptions 
                 profilePage
                 Icon={AccountCircleRoundedIcon}

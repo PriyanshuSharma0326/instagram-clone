@@ -42,13 +42,18 @@ const Profile = styled.div`
     width: 975px;
     height: 100vh;
 
-    @media (min-width: 735px) {
+    @media (min-width: 736px) {
         margin-left: 11.8%;
     }
 `;
 
 const ProfileInfo = styled.div`
-    padding-top: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: 15px;
+    padding-left: 15px;
+
+    @media (min-width: 736px) {
+        padding-top: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 `;

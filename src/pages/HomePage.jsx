@@ -30,18 +30,22 @@ const HomePageContainer = styled.div`
         margin-top: unset;
         margin-bottom: unset;
     }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 const ContentContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
-    /* padding-bottom: 24px; */
-    width: 472px;
+    width: unset;
 
     @media (min-width: 1000px) {
         margin-left: 16.5%;
         margin-right: unset;
         padding-top: unset;
         padding-bottom: unset;
+        width: 472px;
     }
 `;
