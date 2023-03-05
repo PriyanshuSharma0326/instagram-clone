@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 * {
     margin: 0;
 
     --profile-font: Inter, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, Sans-Serif;
+    --logo-font: 'Satisfy', cursive;
 }
 
 body {

@@ -29,7 +29,7 @@ export default function LoginPage() {
         <LoginPageContainer>
             <BoxContainer>
                 <LoginForm>
-                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png' alt='logo' />
+                    <h1>Clonegram</h1>
 
                     <input ref={emailRef}  placeholder='Email' type='email' />
 
@@ -82,12 +82,14 @@ const LoginForm = styled.div`
     border: 1px solid lightgray;
     border-radius: 1px;
 
-    > img {
-        display: block;
-        margin: 0 auto;
+    > h1 {
+        font-size: 36px;
+        margin: auto;
+        text-align: center;
         width: 174px;
         cursor: pointer;
         padding: 30px 0;
+        font-family: var(--logo-font);
     }
 
     > input {

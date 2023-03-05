@@ -26,11 +26,7 @@ export default function Sidebar() {
                 alt='instagram' 
             />
 
-            <img 
-                className='full-logo'
-                src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png' 
-                alt='instagram' 
-            />
+            <h1 className='full-logo'>Clonegram</h1>
 
             <SidebarOptions 
                 homePage
@@ -70,6 +66,16 @@ const SidebarContainer = styled.div`
     padding: 0 13px;
     border-right: 1px solid lightgray;
     display: none;
+
+    > h1 {
+        font-size: 26px;
+        margin-left: 10px;
+        margin-top: 35px;
+        margin-bottom: 25px;
+        text-align: center;
+        cursor: pointer;
+        font-family: var(--logo-font);
+    }
 
     @media (min-width: 767px) {
         display: block;

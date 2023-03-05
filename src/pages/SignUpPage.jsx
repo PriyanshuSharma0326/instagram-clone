@@ -55,8 +55,8 @@ export default function SignUpPage() {
         <SignUpPageContainer>
             <BoxContainer>
                 <SignUpForm onSubmit={handleSubmit}>
-                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png' alt='logo' />
-                    
+                    <h1>Clonegram</h1>
+
                     <h2>Sign up to see photos and videos from your friends.</h2>
 
                     <input placeholder='Email' type='email' />
@@ -114,12 +114,14 @@ const SignUpForm = styled.form`
     border: 1px solid lightgray;
     border-radius: 1px;
 
-    > img {
-        display: block;
-        margin: 0 auto;
+    > h1 {
+        font-size: 36px;
+        margin: auto;
+        text-align: center;
         width: 174px;
         cursor: pointer;
         padding: 30px 0;
+        font-family: var(--logo-font);
     }
 
     > input {
