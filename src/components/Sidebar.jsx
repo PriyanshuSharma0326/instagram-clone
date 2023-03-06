@@ -22,7 +22,7 @@ export default function Sidebar() {
         <SidebarContainer>
             <img 
                 className='logo'
-                src='https://cdn-icons-png.flaticon.com/512/87/87390.png' 
+                src='https://cdn3d.iconscout.com/3d/premium/thumb/chat-emoticon-laugh-5670884-4724172.png' 
                 alt='instagram' 
             />
 
