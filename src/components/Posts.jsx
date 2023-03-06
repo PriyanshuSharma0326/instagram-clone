@@ -1,37 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 import Post from '../components/Post';
+import { useCollection } from 'react-firebase-hooks/firestore';
+import db from '../lib/config/firebase';
 
 export default function Posts() {
+    const [posts] = useCollection(
+        db.collection('userPosts')
+        .orderBy('timestamp', 'desc')
+    );
+
     return (
         <PostsContainer>
-            <Post 
-                username='virat.kohli' 
-                location='Lords' 
-                day='3' 
-                imgURL='https://images.hindustantimes.com/img/2022/09/13/1600x900/APTOPIX-Emirates-Asia-Cup-Cricket-1_1663066971405_1663066971405_1663066999978_1663066999978.jpg'
-                description='Scored my 71st century after a long time. Feels great!'
-            />
-            <Post 
-                username='narendramodi' 
-                location='Ramleela Maidan' 
-                day='5' 
-                imgURL='https://englishtribuneimages.blob.core.windows.net/gallary-content/2022/6/2022_6$largeimg_381175407.jpg'
-                description='Mitron! Aaj Yog Diwas hai.'
-            />
-            <Post 
-                username='chrisgayle333' 
-                location='Jamaica' 
-                day='4' 
-                imgURL='https://upload.wikimedia.org/wikipedia/commons/d/dc/Chris_Gayle.png'
-            />
-            <Post 
-                username='mahi7781' 
-                location='Ranchi' 
-                day='2' 
-                imgURL='https://images.hindustantimes.com/img/2023/01/12/1600x900/Virat_Kohli_MS_Dhoni_1636427886192_1673539397747_1673539397747.jpg'
-                description='Its always great to meet this boy.'
-            />
+            {posts?.docs.map((post) => {
+                const { author, timestamp, postLocation, postURL, descriptionText, authorPhotoURL, postType } = post.data();
+
+                var stamp = timestamp.toDate().getTime();
+                var todate = new Date(stamp).getDate();
+                var tomonth = new Date(stamp).getMonth() + 1;
+                var toyear = new Date(stamp).getFullYear();
+                var original_date = tomonth+'/'+todate+'/'+toyear;
+            
+                return (
+                    <Post 
+                        key={post.id}
+                        username={author} 
+                        location={postLocation}
+                        description={descriptionText}
+                        day={original_date} 
+                        mediaURL={postURL} 
+                        userImageURL={authorPhotoURL}
+                        mediaType={postType}
+                    />
+                );
+            })}
         </PostsContainer>
     );
 }

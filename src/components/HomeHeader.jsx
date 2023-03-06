@@ -7,11 +7,7 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 export default function HomeHeader() {
     return (
         <HomeHeaderContainer>
-            <img 
-                className='full-logo'
-                src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png' 
-                alt='instagram' 
-            />
+            <h1 className='full-logo'>Clonegram</h1>
 
             <SearchBox>
                 <SearchButton>
@@ -39,12 +35,14 @@ const HomeHeaderContainer = styled.div`
         display: none;
     }
 
-    > .full-logo {
-        width: 106px;
+    > h1 {
+        font-size: 26px;
         margin-left: 12px;
         margin-top: 11px;
         margin-bottom: 11px;
+        text-align: center;
         cursor: pointer;
+        font-family: var(--logo-font);
     }
 
     > .MuiSvgIcon-root {

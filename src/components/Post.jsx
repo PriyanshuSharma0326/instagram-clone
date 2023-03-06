@@ -9,7 +9,7 @@ import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlin
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
-export default function Post({ username, day, location, imgURL, description }) {
+export default function Post({ username, day, location, mediaURL, userImageURL, description, mediaType }) {
     const [fullDesc, setFullDesc] = useState(false);
 
     function truncate(string, n) {
@@ -23,7 +23,13 @@ export default function Post({ username, day, location, imgURL, description }) {
     return (
         <PostContainer>
             <PostHeader>
-                <AccountCircleRoundedIcon />
+                {userImageURL ? 
+                    <img 
+                        src={userImageURL}
+                        alt=''
+                    /> : 
+                    <AccountCircleRoundedIcon />
+                }
 
                 <HeaderText>
                     <HeaderTextTop>
@@ -31,7 +37,7 @@ export default function Post({ username, day, location, imgURL, description }) {
 
                         <FiberManualRecordIcon />
 
-                        <h5>{day}d</h5>
+                        <h5>{day}</h5>
                     </HeaderTextTop>
 
                     {location && <h5>{location}</h5>}
@@ -40,9 +46,13 @@ export default function Post({ username, day, location, imgURL, description }) {
                 <MoreHorizIcon className='options' />
             </PostHeader>
 
-            <PostImage>
-                <img className='test5' src={imgURL} alt='post' />
-            </PostImage>
+            <PostMedia>
+                {mediaType === 'image' && <img src={mediaURL} alt='post' />}
+
+                {mediaType === 'video' && <video controls >
+                    <source src={mediaURL} type="video/mp4"/>
+                </video>}
+            </PostMedia>
             
             <PostAction>
                 <FavoriteBorderRoundedIcon />
@@ -107,6 +117,16 @@ const PostHeader = styled.div`
             margin-right: unset;
         }
     }
+
+    > img {
+        height: 36px;
+        width: 36px;
+        margin: 9px 9px 9px 2px;
+        object-fit: cover;
+        border: 0.5px solid lightgray;
+        border-radius: 50%;
+        cursor: pointer;
+    }
 `;
 
 const HeaderText = styled.div`
@@ -147,10 +167,10 @@ const HeaderTextTop = styled.div`
     }
 `;
 
-const PostImage = styled.div`
+const PostMedia = styled.div`
     line-height: 0%;
 
-    img {
+    img, video {
         width: 99.5%;
         border-radius: 3px;
         cursor: pointer;

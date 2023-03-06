@@ -168,11 +168,12 @@ const EditProfileContainer = styled.div`
 `;
 
 const BoxContainer = styled.div`
-    margin: auto;
+    margin: 50px auto auto auto;
     width: 400px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 736px) {
         width: 550px;
+        margin: auto;
     }
 `;
 

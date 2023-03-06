@@ -36,8 +36,6 @@ export default function SignUpPage() {
                     link: '',
                 });
 
-                await setDoc(doc(db, 'userPosts', res.user.uid), {});
-
                 navigate('/');
             }
             catch (error) {

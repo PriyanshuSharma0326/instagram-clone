@@ -30,7 +30,7 @@ export default function AppFooter() {
                     <VideoLibraryOutlinedIcon />
                 </IconContainer>
 
-                <IconContainer>
+                <IconContainer onClick={() => {navigate('/create/');}}>
                     <LocalHospitalOutlinedIcon />
                 </IconContainer>
 
